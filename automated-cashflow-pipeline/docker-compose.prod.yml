@@ -1,0 +1,250 @@
+x-airflow-common:
+  &airflow-common
+  image: apache/airflow:2.8.1-python3.10
+  environment:
+    AIRFLOW_UID: ${AIRFLOW_UID:-50000}
+    AIRFLOW_PROJ_DIR: ${AIRFLOW_PROJ_DIR:-/opt/airflow}
+    AIRFLOW_HOME: /opt/airflow
+    AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+    AIRFLOW__CORE__LOAD_DAGS_EXAMPLES: 'false'
+    AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+    AIRFLOW__CORE__EXECUTOR: CeleryExecutor
+    AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@postgres/airflow
+    AIRFLOW__CELERY__BROKER_URL: redis://redis:6379/0
+    AIRFLOW__CORE__FERNET_KEY: ${FERNET_KEY:-$(python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())")}
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
+    AIRFLOW__CORE__WEBSERVER_PORT: '8080'
+    AIRFLOW__WEBSERVER__RBAC: 'true'
+    AIRFLOW__WEBSERVER__AUTHENTICATE: 'true'
+    AIRFLOW__WEBSERVER__AUTH_BACKEND: 'airflow.providers.cncf.kubernetes.auth_backend.kubernetes_auth'
+    MLFLOW_TRACKING_URI: http://mlflow:5000
+  volumes:
+    - ./dags:/opt/airflow/dags
+    - ./logs:/opt/airflow/logs
+    - ./plugins:/opt/airflow/plugins
+    - ./config:/opt/airflow/config
+    - ./data:/opt/airflow/data
+
+  depends_on:
+    postgres: 
+      condition: service_healthy
+    redis: 
+      condition: service_healthy
+  networks:
+    - app-network
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U airflow"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app-network
+
+  redis:
+    image: redis:latest
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    networks:
+      - app-network
+
+  airflow-init:
+    <<: *airflow-common
+    container_name: airflow-init
+    entrypoint: /bin/bash -c "airflow db migrate && airflow users create -u admin -p admin -r Admin -f Admin -l User -e airflow@example.com"
+    healthcheck:
+      test: ["CMD-SHELL", "airflow users list | grep admin"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  airflow-webserver:
+    <<: *airflow-common
+    container_name: airflow-webserver
+    command: airflow webserver
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://localhost:8080/health"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  airflow-scheduler:
+    <<: *airflow-common
+    container_name: airflow-scheduler
+    command: airflow scheduler
+    healthcheck:
+      test: ["CMD-SHELL", "airflow jobs check --job-type SchedulerJob --hostname $(hostname)"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  airflow-worker:
+    <<: *airflow-common
+    container_name: airflow-worker
+    command: airflow celery worker
+    healthcheck:
+      test: ["CMD-SHELL", "airflow jobs check --job-type WorkerJob --hostname $(hostname)"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:latest
+    ports:
+      - "5000:5000"
+    environment:
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+      MLFLOW_BACKEND_STORE_URI: sqlite:///mlflow.db
+      MLFLOW_DEFAULT_ARTIFACT_ROOT: file:///mlflow_artifacts
+    volumes:
+      - ./mlruns:/mlflow_artifacts
+    depends_on:
+      postgres: 
+        condition: service_healthy
+    networks:
+      - app-network
+    command: >
+      mlflow server
+      --host 0.0.0.0
+      --port 5000
+      --backend-store-uri sqlite:///mlflow.db
+      --default-artifact-root file:///mlflow_artifacts
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+      GF_SERVER_ROOT_URL: http://localhost:3000
+      GF_SERVER_SERVE_FROM_SUB_PATH: true
+    volumes:
+      - grafana-storage:/var/lib/grafana
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    image: your-repo/api:1.0.0 # Specify a version
+    container_name: api_prod
+    environment:
+      - FLASK_ENV=production # Example: Set production environment
+      - DATABASE_URL=${PROD_DATABASE_URL} # Load from .env.prod or secrets
+      # Add other production-specific environment variables
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    restart: always # Ensure service restarts on failure
+    volumes:
+      - api_logs:/app/logs # Example: Named volume for logs
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8002/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - app-network
+
+  financial-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.financial-api
+    environment:
+      - ALPHA_VANTAGE_KEY=${ALPHA_VANTAGE_KEY}
+      - FRED_API_KEY=${FRED_API_KEY}
+      - API_TOKEN=${API_TOKEN:-secure_token}
+      - MODEL_PATH=/app/models/rf_model_20250724_1608.pkl
+    volumes:
+      - ./models:/app/models:ro
+      - ./api.py:/app/api.py:ro
+    depends_on:
+      - airflow-webserver
+      - mlflow
+    ports:
+      - "8002:8002"
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8002/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command: --config.file=/etc/prometheus/prometheus.yml
+    depends_on:
+      - financial-api
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"  # External port 80 routes to Nginx
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+volumes:
+  grafana-storage:
+  postgres_db_volume:
+  mlflow_data:
+  api_logs:

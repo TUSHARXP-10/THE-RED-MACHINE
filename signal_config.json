@@ -1,0 +1,7 @@
+{
+  "mode": "paper",
+  "capital_per_trade": 25000,
+  "refresh_interval_sec": 30,
+  "symbol_filter": "SENSEX",
+  "max_trades_per_day": 3
+}

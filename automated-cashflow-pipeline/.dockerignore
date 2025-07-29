@@ -1,0 +1,14 @@
+logs/
+__pycache__/
+.env
+.env.prod
+*.pyc
+*.sqlite3
+.git/
+.vscode/
+.DS_Store
+Dockerfile
+Dockerfile.api
+Dockerfile.financial-api
+docker-compose.yml
+docker-compose.prod.yml

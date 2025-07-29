@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: automated-cashflow-pipeline/Dockerfile.api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./api.py:/app/api.py
+      - ./requirements.txt:/app/requirements.txt
+      - type: bind
+        source: ../models/
+        target: /app/models/
+    environment:
+      - MODEL_PATH=/app/models/rf_model_20250724_1608.pkl # Ensure this matches the model copied
+    restart: unless-stopped

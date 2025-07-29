@@ -1,0 +1,13 @@
+- name: RSI_Drop_IV_Surge
+  triggers:
+    rsi_below: 30
+    iv_zscore_above: 1.0
+
+- name: IV_Reversion
+  triggers:
+    iv_zscore_above: 0.5
+    rsi_above: 40
+
+- name: OI_Build_Up
+  triggers:
+    oi_change_above: 500

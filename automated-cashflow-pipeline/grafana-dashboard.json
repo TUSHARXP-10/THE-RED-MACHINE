@@ -1,0 +1,154 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "Financial API Monitoring Dashboard",
+    "tags": ["financial-api", "monitoring"],
+    "timezone": "browser",
+    "panels": [
+      {
+        "id": 1,
+        "title": "API Health Status",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "up{job=\"financial-api\"}",
+            "legendFormat": "API Status"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "mappings": [
+              {"value": 0, "text": "DOWN", "color": "red"},
+              {"value": 1, "text": "UP", "color": "green"}
+            ]
+          }
+        },
+        "gridPos": {"h": 4, "w": 6, "x": 0, "y": 0}
+      },
+      {
+        "id": 2,
+        "title": "Request Latency (avg)",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "rate(request_latency_seconds_sum{endpoint=\"/predict\"}[5m]) / rate(request_latency_seconds_count{endpoint=\"/predict\"}[5m])",
+            "legendFormat": "Avg Latency"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "s",
+            "thresholds": {
+              "steps": [
+                {"color": "green", "value": null},
+                {"color": "yellow", "value": 0.1},
+                {"color": "red", "value": 0.5}
+              ]
+            }
+          }
+        },
+        "gridPos": {"h": 4, "w": 6, "x": 6, "y": 0}
+      },
+      {
+        "id": 3,
+        "title": "Total Predictions",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "predictions_total",
+            "legendFormat": "Predictions"
+          }
+        ],
+        "gridPos": {"h": 4, "w": 6, "x": 12, "y": 0}
+      },
+      {
+        "id": 4,
+        "title": "Prediction Errors",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "prediction_errors_total",
+            "legendFormat": "Errors"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "thresholds": {
+              "steps": [
+                {"color": "green", "value": null},
+                {"color": "red", "value": 1}
+              ]
+            }
+          }
+        },
+        "gridPos": {"h": 4, "w": 6, "x": 18, "y": 0}
+      },
+      {
+        "id": 5,
+        "title": "Request Latency Over Time",
+        "type": "timeseries",
+        "targets": [
+          {
+            "expr": "rate(request_latency_seconds_sum{endpoint=\"/predict\"}[1m]) / rate(request_latency_seconds_count{endpoint=\"/predict\"}[1m])",
+            "legendFormat": "Avg Latency"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "s"
+          }
+        },
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 4}
+      },
+      {
+        "id": 6,
+        "title": "Request Rate",
+        "type": "timeseries",
+        "targets": [
+          {
+            "expr": "rate(predictions_total[1m])",
+            "legendFormat": "Predictions/sec"
+          }
+        ],
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 4}
+      },
+      {
+        "id": 7,
+        "title": "Failed DAGs (Airflow)",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "airflow_dag_run_failed_total",
+            "legendFormat": "Failed DAGs"
+          }
+        ],
+        "datasource": {
+          "type": "postgres",
+          "uid": "postgres-airflow"
+        },
+        "gridPos": {"h": 4, "w": 12, "x": 0, "y": 12}
+      },
+      {
+        "id": 8,
+        "title": "System Resources",
+        "type": "timeseries",
+        "targets": [
+          {
+            "expr": "container_memory_usage_bytes{container=\"financial-api\"}",
+            "legendFormat": "Memory Usage"
+          },
+          {
+            "expr": "rate(container_cpu_usage_seconds_total{container=\"financial-api\"}[1m])",
+            "legendFormat": "CPU Usage"
+          }
+        ],
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 12}
+      }
+    ],
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "refresh": "5s"
+  }
+}

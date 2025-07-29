@@ -1,0 +1,11 @@
+apache-airflow
+pandas
+numpy==1.23.5
+mlflow
+tenacity
+fastapi
+uvicorn
+scikit-learn==1.2.2
+joblib
+python-dotenv
+prometheus-client

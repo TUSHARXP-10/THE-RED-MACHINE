@@ -1,0 +1,67 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Daily Summary Report</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 20px; }
+                h1 { color: #333; }
+                h2 { color: #555; border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 20px; }
+                table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+                th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                th { background-color: #f2f2f2; }
+                .insight-box { background-color: #e6f7ff; border: 1px solid #91d5ff; padding: 15px; margin-top: 20px; border-radius: 5px; }
+                img { max-width: 100%; height: auto; margin-top: 10px; }
+            </style>
+        </head>
+        <body>
+            <h1>Daily Summary Report</h1>
+            <p><strong>Report Generated:</strong> 2025-07-24 02:46:59</p>
+
+            <h2>Active Agents & Regimes Used</h2>
+            <p>No agent rotation data available.</p>
+
+            <h2>Detected Drift Summary</h2>
+            <p>No retrain data available.</p>
+
+            <h2>Top Strategy of the Day</h2>
+            <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>strategy_name</th>
+      <td>StrategyE</td>
+    </tr>
+    <tr>
+      <th>pnl</th>
+      <td>1500</td>
+    </tr>
+    <tr>
+      <th>sharpe_ratio</th>
+      <td>2.1</td>
+    </tr>
+  </tbody>
+</table>
+
+            <h2>Performance Plots</h2>
+            
+                <h3>PnL Plot</h3>
+                <img src="reports\pnl_per_strategy.png" alt="PnL Plot">
+            
+            
+                <h3>Sharpe Ratio Plot</h3>
+                <img src="reports\sharpe_ratio_per_strategy.png" alt="Sharpe Ratio Plot">
+            
+
+            <h2>Summary Box (Insights)</h2>
+            <div class="insight-box">
+                <p>No retrain log data available to analyze drift. Today's top performing strategy is 'StrategyE' with a PnL of 1500.00 and Sharpe Ratio of 2.10.</p>
+            </div>
+        </body>
+        </html>
+        

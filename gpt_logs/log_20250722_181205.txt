@@ -1,0 +1,52 @@
+Prompt:
+Propose a simple intraday options scalping strategy using RSI and MACD for Nifty options.
+
+Completion:
+Here is a **simple intraday options scalping strategy for Nifty options using RSI and MACD** that you can implement effectively:
+
+---
+
+### Strategy Overview
+This strategy uses **RSI (Relative Strength Index)** and **MACD (Moving Average Convergence Divergence)** on a short time frame (e.g., 5-minute chart) to capture quick momentum moves in Nifty options, ideal for scalping.
+
+---
+
+### Indicators Setup
+- **RSI:** Period 14, with oversold level at 30 and overbought at 70.
+- **MACD:** Standard settings (12, 26, 9).
+- **Timeframe:** 5-minute chart for Nifty index or Nifty options.
+
+---
+
+### Entry Rules
+
+**For Long (Buy Call Option):**
+1. RSI crosses above 30 from below (indicating exit from oversold).
+2. MACD line crosses above the signal line (bullish momentum).
+3. Confirm the price is above the MACD zero line to avoid weak signals.
+
+**For Short (Buy Put Option):**
+1. RSI crosses below 70 from above (indicating exit from overbought).
+2. MACD line crosses below the signal line (bearish momentum).
+3. Confirm the price is below the MACD zero line.
+
+---
+
+### Exit Rules
+- Exit the trade when the MACD line crosses back against your trade direction.
+- Alternatively, set a **tight target of 0.5% to 1% move** in option premium depending on volatility.
+- Use a stop-loss based on 0.3% to 0.5% adverse move or RSI returning to neutral (around 50).
+
+---
+
+### Additional Tips for Scalping Nifty Options
+- Trade only between 9:30 AM to 3:00 PM for liquidity and volatility.
+- Use **liquid strike prices** near the current underlying price (ATM or 1 strike ITM/OTM).
+- Fast execution and low brokerage are critical due to the high number of trades.
+- Always monitor margin requirements and keep a buffer as options prices can be volatile intraday[1][2][4].
+
+---
+
+This strategy balances the momentum signals from MACD with the overbought/oversold filter from RSI, making it suitable for quick scalping trades on Nifty options. You can automate or manually trade it with disciplined risk management.
+
+If you want, I can hel

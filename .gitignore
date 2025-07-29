@@ -1,0 +1,55 @@
+# Python virtual environment
+.venv/
+venv/
+env/
+
+# Large model files
+*.pkl
+*.zip
+*.pth
+*.pt
+
+# Data files
+data/
+raw/
+processed/
+warehouse/
+
+# Logs
+logs/
+*.log
+
+# Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large PyTorch files
+**/torch/lib/*.dll
+**/torch/lib/*.lib
+**/torch/lib/*.so
+
+# Model directories
+models/
+mlruns/
+
+# Backup files
+backups/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Large binary files
+*.bin
+*.exe
+*.dll

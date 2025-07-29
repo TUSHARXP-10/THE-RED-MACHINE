@@ -1,0 +1,6 @@
+{
+    "prompt_hash": "hash_abc",
+    "strategy_name": "DummySENSEXStrategy",
+    "timestamp": "2023-10-26T10:00:00Z",
+    "details": "Generated strategy from prompt hash_abc"
+}

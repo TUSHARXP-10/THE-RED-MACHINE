@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "timestamp": "2025-07-24T05:04:15.602503",
+        "prompt_text": "",
+        "strategy_id": "",
+        "pnl": 0.04,
+        "version": 1.2000000000000002,
+        "status": "active"
+    },
+    {
+        "id": 2,
+        "timestamp": "2025-07-24T15:43:12.373147",
+        "prompt_text": "Strategy based on RSI < 30 and IV_zscore < -1 for BUY, RSI > 70 and IV_zscore > 1 for SELL.",
+        "strategy_id": "rule_based_sensex_strategy_v1",
+        "pnl": 0.9000000000000057,
+        "version": 1.1,
+        "status": "active"
+    },
+    {
+        "id": 3,
+        "timestamp": "2025-07-24T15:43:16.572609",
+        "prompt_text": "",
+        "strategy_id": "",
+        "pnl": 0.0,
+        "version": 1.0,
+        "status": "active"
+    }
+]

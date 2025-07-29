@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: financial-api
+spec:
+  replicas: 2  # Start with 2 for load balancing
+  selector:
+    matchLabels:
+      app: financial-api
+  template:
+    metadata:
+      labels:
+        app: financial-api
+    spec:
+      containers:
+      - name: api
+        image: financial-api:latest  # Push to ECR first (see below)
+        ports:
+          - containerPort: 8000
+        envFrom:
+          - configMapRef:
+              name: api-config  # Create for .env vars
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-service
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8000
+  selector:
+    app: financial-api

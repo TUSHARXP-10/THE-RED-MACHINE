@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Red Machine Summary</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px; color: #333; }
+        .container { width: 80%; margin: auto; background-color: #f9f9f9; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { color: #0056b3; border-bottom: 2px solid #0056b3; padding-bottom: 10px; }
+        h2 { color: #0056b3; margin-top: 20px; }
+        .section { background-color: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 15px; margin-bottom: 15px; }
+        .header-info { display: flex; justify-content: space-between; margin-bottom: 20px; font-size: 0.9em; color: #555; }
+        .header-info div { flex: 1; text-align: center; }
+        .metric-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .metric-table th, .metric-table td { border: 1px solid #eee; padding: 8px; text-align: left; }
+        .metric-table th { background-color: #e9ecef; }
+        .image-container { text-align: center; margin-top: 20px; }
+        .image-container img { max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 5px; }
+        .footer { text-align: center; margin-top: 30px; font-size: 0.8em; color: #777; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Daily Red Machine Summary</h1>
+        
+        <div class="header-info">
+            <div><strong>Date:</strong> {{ report_date }}</div>
+            <div><strong>Timestamp:</strong> {{ timestamp }}</div>
+            <div><strong>Status:</strong> {{ red_machine_status }}</div>
+        </div>
+
+        <div class="section">
+            <h2>Regime Summary</h2>
+            <p>{{ regime_summary }}</p>
+        </div>
+
+        <div class="section">
+            <h2>Agent Activity</h2>
+            <p>{{ agent_activity }}</p>
+        </div>
+
+        <div class="section">
+            <h2>Drift & Retrain Log</h2>
+            <p>{{ drift_log }}</p>
+        </div>
+
+        <div class="section">
+            <h2>Top Performing Strategies</h2>
+            {% if top_strategies %}
+            <table class="metric-table">
+                <thead>
+                    <tr>
+                        <th>Strategy</th>
+                        <th>PnL</th>
+                        <th>Sharpe Ratio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for strategy in top_strategies %}
+                    <tr>
+                        <td>{{ strategy.name }}</td>
+                        <td>{{ strategy.pnl }}</td>
+                        <td>{{ strategy.sharpe_ratio }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p>No top strategies to display.</p>
+            {% endif %}
+        </div>
+
+        <div class="section">
+            <h2>Visual Summaries</h2>
+            <div class="image-container">
+                <img src="{{ reward_trend_image }}" alt="Reward Trend">
+                <p>Agent Reward Trend</p>
+            </div>
+            <!-- Add more visuals here as needed -->
+        </div>
+
+        <div class="footer">
+            <p>System Health Notes: {{ system_health_notes }}</p>
+            <p>Next scheduled run: Nightly at 18:00 IST</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+strategy_name,pnl,sharpe_ratio
+StrategyA,1000,1.5
+StrategyB,800,1.2
+StrategyC,1200,1.8
+StrategyD,500,0.9
+StrategyE,1500,2.1

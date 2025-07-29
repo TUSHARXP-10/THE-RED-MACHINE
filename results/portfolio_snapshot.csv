@@ -1,0 +1,4 @@
+Strategy,Total PnL,Total Exposure,Net PnL,Net Exposure
+IV_Reversion,-5,1500,40,4800
+OI_Build_Up,20,1200,40,4800
+RSI_Drop_IV_Surge,25,2100,40,4800

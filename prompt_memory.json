@@ -1,0 +1,23 @@
+{
+    "hash1": {
+        "prompt_text": "Trend following strategy for Nifty",
+        "themes": [
+            "nifty",
+            "trend_following"
+        ]
+    },
+    "hash2": {
+        "prompt_text": "Mean reversion strategy for Sensex",
+        "themes": [
+            "sensex",
+            "mean_reversion"
+        ]
+    },
+    "hash3": {
+        "prompt_text": "Scalping strategy for BankNifty",
+        "themes": [
+            "banknifty",
+            "scalping"
+        ]
+    }
+}

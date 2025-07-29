@@ -1,0 +1,26 @@
+{
+    "hash1": {
+        "total_strategy_count": 0,
+        "avg_net_pnl": 0,
+        "cumulative_net_pnl": 0,
+        "avg_sharpe_ratio": 0,
+        "victory_rate": 0,
+        "strategies": []
+    },
+    "hash2": {
+        "total_strategy_count": 0,
+        "avg_net_pnl": 0,
+        "cumulative_net_pnl": 0,
+        "avg_sharpe_ratio": 0,
+        "victory_rate": 0,
+        "strategies": []
+    },
+    "hash3": {
+        "total_strategy_count": 0,
+        "avg_net_pnl": 0,
+        "cumulative_net_pnl": 0,
+        "avg_sharpe_ratio": 0,
+        "victory_rate": 0,
+        "strategies": []
+    }
+}

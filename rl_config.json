@@ -1,0 +1,20 @@
+{
+    "api_key": "YOUR_API_KEY",
+    "secret_key": "YOUR_SECRET_KEY",
+    "session_token": "YOUR_SESSION_TOKEN",
+    "initial_capital": 100000,
+    "mode": "paper",
+    "ppo_params": {
+        "learning_rate": 0.0003,
+        "n_steps": 2048,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.99,
+        "gae_lambda": 0.95,
+        "clip_range": 0.2,
+        "ent_coef": 0.0,
+        "vf_coef": 0.5,
+        "max_grad_norm": 0.5
+    },
+    "log_dir": "./logs/rl_rlab.csv"
+}

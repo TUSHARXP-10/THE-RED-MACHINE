@@ -1,0 +1,6 @@
+name: DummySENSEXStrategy
+description: A simple dummy strategy for SENSEX options.
+rules:
+  - type: entry
+    condition: price > 100
+    action: BUY
