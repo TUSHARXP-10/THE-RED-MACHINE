@@ -21,3 +21,4 @@ ta>=0.10.0
 kiteconnect>=4.0.0
 schedule>=1.2.0
 statsmodels>=0.14.0
+psutil>=5.9.0
