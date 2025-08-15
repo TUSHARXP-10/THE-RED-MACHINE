@@ -1,0 +1,60 @@
+<svg width="1200" height="627" viewBox="0 0 1200 627" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#764ba2"/>
+    </linearGradient>
+    <linearGradient id="text" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b6b"/>
+      <stop offset="100%" style="stop-color:#4ecdc4"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="627" fill="url(#bg)"/>
+  
+  <!-- Title -->
+  <text x="600" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="url(#text)">
+    THE RED MACHINE
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="white">
+    AI-Powered Trading Dashboard
+  </text>
+  
+  <!-- Features -->
+  <text x="600" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="white">
+    • Real-time Market Analysis •
+  </text>
+  <text x="600" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="white">
+    • AI-Driven Strategies •
+  </text>
+  <text x="600" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="white">
+    • Automated Portfolio Management •
+  </text>
+  
+  <!-- Chart placeholders -->
+  <rect x="100" y="400" width="200" height="100" fill="rgba(255,255,255,0.1)" stroke="white" stroke-width="2" rx="10"/>
+  <rect x="350" y="400" width="200" height="100" fill="rgba(255,255,255,0.1)" stroke="white" stroke-width="2" rx="10"/>
+  <rect x="600" y="400" width="200" height="100" fill="rgba(255,255,255,0.1)" stroke="white" stroke-width="2" rx="10"/>
+  <rect x="850" y="400" width="200" height="100" fill="rgba(255,255,255,0.1)" stroke="white" stroke-width="2" rx="10"/>
+  
+  <!-- Lines in chart placeholders -->
+  <path d="M120 450 L180 430" stroke="#4ecdc4" stroke-width="3"/>
+  <path d="M120 480 L180 470" stroke="#ff6b6b" stroke-width="3"/>
+  
+  <path d="M370 450 L530 420" stroke="#4ecdc4" stroke-width="3"/>
+  <path d="M370 470 L530 460" stroke="#ff6b6b" stroke-width="3"/>
+  
+  <path d="M620 440 L780 450" stroke="#4ecdc4" stroke-width="3"/>
+  <path d="M620 460 L780 440" stroke="#ff6b6b" stroke-width="3"/>
+  
+  <path d="M870 430 L1030 450" stroke="#4ecdc4" stroke-width="3"/>
+  <path d="M870 450 L1030 470" stroke="#ff6b6b" stroke-width="3"/>
+  
+  <!-- Footer -->
+  <text x="600" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="white" opacity="0.8">
+    Live Streamlit Dashboard • Advanced Trading Analytics
+  </text>
+</svg>

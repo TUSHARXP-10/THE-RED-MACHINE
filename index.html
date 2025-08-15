@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE RED MACHINE - AI-Powered Trading Dashboard</title>
+    <meta name="description" content="Advanced AI trading system with real-time market analysis, automated strategies, and comprehensive portfolio management. Built with Streamlit and Python.">
+    <meta name="keywords" content="AI trading, algorithmic trading, stock market, Python, Streamlit, machine learning, portfolio management">
+    <meta name="author" content="THE RED MACHINE">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tusharxp-10.github.io/THE-RED-MACHINE/">
+    <meta property="og:title" content="THE RED MACHINE - AI-Powered Trading Dashboard">
+    <meta property="og:description" content="Advanced AI trading system with real-time market analysis, automated strategies, and comprehensive portfolio management.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/TUSHARXP-10/THE-RED-MACHINE/main/assets/dashboard-preview.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://tusharxp-10.github.io/THE-RED-MACHINE/">
+    <meta property="twitter:title" content="THE RED MACHINE - AI-Powered Trading Dashboard">
+    <meta property="twitter:description" content="Advanced AI trading system with real-time market analysis, automated strategies, and comprehensive portfolio management.">
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/TUSHARXP-10/THE-RED-MACHINE/main/assets/dashboard-preview.jpg">
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .description {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        .features {
+            text-align: left;
+            margin: 30px 0;
+        }
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+        .features li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4ecdc4;
+            font-weight: bold;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: transform 0.3s ease;
+            margin: 10px;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .redirect-notice {
+            margin-top: 20px;
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>THE RED MACHINE</h1>
+        <p class="description">
+            Advanced AI-Powered Trading Dashboard with real-time market analysis, 
+            automated strategies, and comprehensive portfolio management.
+        </p>
+        
+        <div class="features">
+            <ul>
+                <li>Real-time market data analysis</li>
+                <li>AI-driven trading strategies</li>
+                <li>Automated portfolio management</li>
+                <li>Risk management & alerts</li>
+                <li>Interactive visualizations</li>
+                <li>Multi-broker integration</li>
+            </ul>
+        </div>
+        
+        <a href="https://the-red-machine.streamlit.app" class="btn">Launch Dashboard</a>
+        <a href="https://github.com/TUSHARXP-10/THE-RED-MACHINE" class="btn">View Source</a>
+        
+        <p class="redirect-notice">
+            Redirecting to live dashboard in 3 seconds...
+        </p>
+    </div>
+    
+    <script>
+        // Redirect to Streamlit app after 3 seconds
+        setTimeout(function() {
+            window.location.href = "https://the-red-machine.streamlit.app";
+        }, 3000);
+    </script>
+</body>
+</html>
