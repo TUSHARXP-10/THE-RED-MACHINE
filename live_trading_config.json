@@ -1,0 +1,32 @@
+{
+  "setup_date": "2025-08-27T15:33:06.919676",
+  "symbols": [
+    "RELIANCE",
+    "TCS",
+    "HDFCBANK",
+    "INFY",
+    "ITC",
+    "ICICIBANK",
+    "SBIN",
+    "BHARTIARTL",
+    "HINDUNILVR",
+    "LT",
+    "KOTAKBANK",
+    "AXISBANK",
+    "MARUTI",
+    "SUNPHARMA",
+    "ULTRACEMCO",
+    "WIPRO",
+    "NIFTY50",
+    "BANKNIFTY"
+  ],
+  "bridge_status": "initialized",
+  "health_check": {
+    "connected": true,
+    "streaming": false,
+    "subscribed_instruments": 10,
+    "live_data_points": 0,
+    "orders_placed": 0,
+    "timestamp": "2025-08-27T15:33:06.919685"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "capital": 3000,
+  "paper_trading": true,
+  "risk_per_trade": 2.0,
+  "max_positions": 3,
+  "kite_api_key": "",
+  "kite_access_token": "",
+  "telegram_bot_token": "",
+  "telegram_chat_id": "",
+  "airflow_port": 8080,
+  "dashboard_port": 8501,
+  "auto_start_time": "09:00",
+  "market_open": "09:15",
+  "market_close": "15:30",
+  "services": {
+    "airflow": true,
+    "dashboard": true,
+    "data_simulator": true,
+    "model_monitor": true,
+    "kite_integration": true
+  },
+  "refresh_interval": 5,
+  "alerts_enabled": true,
+  "auto_restart": true,
+  "notification_settings": {
+    "telegram_enabled": false,
+    "email_enabled": false,
+    "desktop_notifications": true
+  },
+  "trading_hours": {
+    "pre_market": "09:00",
+    "market_open": "09:15",
+    "market_close": "15:30",
+    "post_market": "15:45"
+  }
+}

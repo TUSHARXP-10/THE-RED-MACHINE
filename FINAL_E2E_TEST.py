@@ -35,10 +35,21 @@ except Exception as e:
 print("\n2. Testing API Prediction...")
 try:
     payload = {
-        "data": [0.5, 100.0, 50.0, 103.0, 1.2, 0.8, 1.1, 0.9, 1.05, 0.95]
+        "data": {
+            "feature_1": 0.5,
+            "feature_2": 100.0,
+            "feature_3": 50.0,
+            "feature_4": 103.0,
+            "feature_5": 1.2,
+            "feature_6": 0.8,
+            "feature_7": 1.1,
+            "feature_8": 0.9,
+            "feature_9": 1.05,
+            "feature_10": 0.95
+        }
     }
     
-    headers = {"Authorization": "Bearer test_secure_token"}
+    headers = {"Authorization": "Bearer secure_token"}
     response = requests.post(
         "http://localhost:8002/predict",
         json=payload,

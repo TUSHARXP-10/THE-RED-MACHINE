@@ -404,7 +404,8 @@ elif page == "Model Management":
                      datetime.fromisoformat(metadata['training_date']).strftime("%Y-%m-%d %H:%M"))
     
     with col3:
-        st.metric("Capital", f"Rs.{dashboard.load_config()['capital']:,}")
+        config = dashboard.load_config()
+        st.metric("Capital", f"Rs.{config.get('capital', 3000):,}")
     
     # Model actions
     st.subheader("Model Actions")
@@ -559,5 +560,6 @@ elif page == "Logs":
 
 # Auto-refresh
 if st.sidebar.checkbox("Auto Refresh", value=True):
-    time.sleep(dashboard.load_config().get('refresh_interval', 5))
+    config = dashboard.load_config()
+    time.sleep(config.get('refresh_interval', 5))
     st.rerun()

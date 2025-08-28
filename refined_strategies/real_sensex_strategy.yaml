@@ -1,0 +1,47 @@
+name: RealSENSEXStrategy
+description: Ultra-fast SENSEX scalping strategy for rapid signal generation
+
+# Realistic SENSEX trading parameters
+base_price: 81000
+min_movement_pct: 0.1
+max_volatility_pct: 5.0
+
+# Entry rules based on real market conditions
+rules:
+  - type: entry
+    condition: price_change_percent > 0.1 and volume > 1000000
+    action: BUY_CALL
+    confidence: 0.9
+    
+  - type: entry
+    condition: price_change_percent < -0.1 and volume > 1000000
+    action: BUY_PUT
+    confidence: 0.9
+    
+  - type: exit
+    condition: price_change_percent > 0.3 or price_change_percent < -0.2
+    action: SQUARE_OFF
+    confidence: 1.0
+    
+  - type: no_trade
+    condition: volatility > 5.0
+    action: AVOID
+    confidence: 1.0
+
+# Risk management parameters
+risk_management:
+  max_position_size: 5000
+  stop_loss_pct: 0.2
+  target_profit_pct: 0.3
+  max_trades_per_day: 10
+
+# Strike selection logic
+strike_selection:
+  method: ATM_PLUS_100
+  expiry: WEEKLY
+  
+# Signal generation thresholds
+thresholds:
+  min_price_change: 0.1
+  min_volume: 1000000
+  max_spread_pct: 0.1

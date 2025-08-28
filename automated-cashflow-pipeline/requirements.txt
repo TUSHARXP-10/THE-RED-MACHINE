@@ -9,3 +9,4 @@ scikit-learn==1.2.2
 joblib
 python-dotenv
 prometheus-client
+python-dateutil==2.8.2

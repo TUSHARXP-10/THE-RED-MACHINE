@@ -1,0 +1,13 @@
+apiVersion: 1
+
+datasources:
+  - name: PostgreSQL-Airflow
+    type: postgres
+    host: postgres
+    port: 5432
+    database: airflow
+    user: airflow
+    password: airflow
+    sslmode: disable
+    uid: postgres-airflow
+    editable: true

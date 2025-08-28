@@ -1,1 +1,107 @@
-{}
+{
+    "Strategy Name": [
+        {
+            "timestamp": "2025-07-30T08:06:21.361657",
+            "sharpe_ratio": "Sharpe Ratio",
+            "pnl": "PnL",
+            "max_drawdown": "Max Drawdown",
+            "win_rate": "Win Rate"
+        },
+        {
+            "timestamp": "2025-07-30T08:55:32.658015",
+            "sharpe_ratio": "Sharpe Ratio",
+            "pnl": "PnL",
+            "max_drawdown": "Max Drawdown",
+            "win_rate": "Win Rate"
+        }
+    ],
+    "StrategyA": [
+        {
+            "timestamp": "2025-07-30T08:06:21.361657",
+            "sharpe_ratio": "1.5",
+            "pnl": "1000",
+            "max_drawdown": "0.1",
+            "win_rate": "0.6"
+        },
+        {
+            "timestamp": "2025-07-30T08:55:32.658015",
+            "sharpe_ratio": "1.5",
+            "pnl": "1000",
+            "max_drawdown": "0.1",
+            "win_rate": "0.6"
+        }
+    ],
+    "StrategyB": [
+        {
+            "timestamp": "2025-07-30T08:06:21.361657",
+            "sharpe_ratio": "1.2",
+            "pnl": "800",
+            "max_drawdown": "0.15",
+            "win_rate": "0.55"
+        },
+        {
+            "timestamp": "2025-07-30T08:55:32.658015",
+            "sharpe_ratio": "1.2",
+            "pnl": "800",
+            "max_drawdown": "0.15",
+            "win_rate": "0.55"
+        }
+    ],
+    "StrategyC": [
+        {
+            "timestamp": "2025-07-30T08:06:21.361657",
+            "sharpe_ratio": "1.8",
+            "pnl": "1200",
+            "max_drawdown": "0.08",
+            "win_rate": "0.7"
+        },
+        {
+            "timestamp": "2025-07-30T08:55:32.658015",
+            "sharpe_ratio": "1.8",
+            "pnl": "1200",
+            "max_drawdown": "0.08",
+            "win_rate": "0.7"
+        }
+    ],
+    "StrategyD": [
+        {
+            "timestamp": "2025-07-30T08:06:21.361657",
+            "sharpe_ratio": "0.9",
+            "pnl": "500",
+            "max_drawdown": "0.2",
+            "win_rate": "0.4"
+        },
+        {
+            "timestamp": "2025-07-30T08:55:32.658015",
+            "sharpe_ratio": "0.9",
+            "pnl": "500",
+            "max_drawdown": "0.2",
+            "win_rate": "0.4"
+        }
+    ],
+    "StrategyE": [
+        {
+            "timestamp": "2025-07-30T08:06:21.361657",
+            "sharpe_ratio": "2.1",
+            "pnl": "1500",
+            "max_drawdown": "0.05",
+            "win_rate": "0.75"
+        },
+        {
+            "timestamp": "2025-07-30T08:55:32.658015",
+            "sharpe_ratio": "2.1",
+            "pnl": "1500",
+            "max_drawdown": "0.05",
+            "win_rate": "0.75"
+        }
+    ],
+    "ExampleStrategy": [
+        {
+            "timestamp": "2025-07-30T10:56:26.820498",
+            "sharpe_ratio": 1.5,
+            "pnl": 1000,
+            "max_drawdown": 0.1,
+            "win_rate": 0.6
+        }
+    ]
+}

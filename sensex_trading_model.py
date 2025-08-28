@@ -294,6 +294,7 @@ if __name__ == "__main__":
     parser.add_argument('--reset-parameters', action='store_true', help='Reset model parameters before retraining.')
     parser.add_argument('--show-sample', type=int, default=0, help='Show N samples of raw data.')
     parser.add_argument('--reset-model', action='store_true', help='Reset model architecture and retrain.')
+    parser.add_argument('--paper-trade', action='store_true', help='Enable paper trading mode (no real orders placed).')
 
     args = parser.parse_args()
     mode = args.mode
@@ -348,9 +349,15 @@ def get_current_expiry(breeze_instance):
         return None
     return current_expiry
 
-def place_order(signal, row):
+def place_order(signal, row, is_paper_trade):
     # Use the calculated position_size
     quantity = str(int(row['position_size']))
+
+    if is_paper_trade:
+        log_trade(row, "PAPER_EXECUTED")
+        print(f"[PAPER TRADE] Signal: {signal}, Quantity: {quantity}, Price: {row['last_traded_price']}")
+        return
+
     if signal == 'BUY':
         try:
             breeze.place_order(
@@ -412,7 +419,7 @@ def daily_job():
 
                     for _, row in df.iterrows():
                         if validate_trade(row):
-                            place_order(row['signal'], row)
+                            place_order(row['signal'], row, args.paper_trade)
                 else:
                     print("No data for prediction after dropping NaNs.")
             else:

@@ -3,10 +3,10 @@ version: '3.8'
 services:
   api:
     build:
-      context: ..
-      dockerfile: automated-cashflow-pipeline/Dockerfile.api
+      context: .
+      dockerfile: Dockerfile.api
     ports:
-      - "8000:8000"
+      - "8002:8002"
     volumes:
       - ./api.py:/app/api.py
       - ./requirements.txt:/app/requirements.txt

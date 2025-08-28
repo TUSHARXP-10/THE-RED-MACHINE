@@ -1,0 +1,19 @@
+{
+  "kite_api": {
+    "api_key": "your_api_key_here",
+    "api_secret": "your_api_secret_here",
+    "redirect_url": "https://localhost",
+    "client_id": "your_client_id"
+  },
+  "trading_parameters": {
+    "initial_capital": 3000,
+    "max_position_size": 0.15,
+    "risk_per_trade": 0.02
+  },
+  "demat_settings": {
+    "enable_live_trading": false,
+    "enable_paper_trading": true,
+    "order_type": "MARKET",
+    "product_type": "MIS"
+  }
+}

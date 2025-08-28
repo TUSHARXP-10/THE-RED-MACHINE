@@ -1,0 +1,54 @@
+{
+  "symbols": [
+    "RELIANCE",
+    "TCS",
+    "HDFCBANK",
+    "INFY",
+    "ITC",
+    "ICICIBANK",
+    "SBIN",
+    "BHARTIARTL",
+    "HINDUNILVR",
+    "LT",
+    "KOTAKBANK",
+    "AXISBANK",
+    "MARUTI",
+    "SUNPHARMA",
+    "ULTRACEMCO",
+    "WIPRO"
+  ],
+  "indices": [
+    "NIFTY50",
+    "BANKNIFTY"
+  ],
+  "intervals": [
+    "1minute",
+    "5minute",
+    "15minute",
+    "1hour",
+    "1day"
+  ],
+  "risk_per_trade": 0.02,
+  "max_positions": 5,
+  "order_types": [
+    "MARKET",
+    "LIMIT",
+    "SL",
+    "SL-M"
+  ],
+  "products": [
+    "MIS",
+    "CNC",
+    "NRML"
+  ],
+  "streaming_mode": "FULL",
+  "auto_reconnect": true,
+  "max_reconnect_attempts": 5,
+  "heartbeat_interval": 30,
+  "data_retention_hours": 24,
+  "alert_thresholds": {
+    "price_change_pct": 2.0,
+    "volume_spike_ratio": 3.0,
+    "oi_change_pct": 5.0
+  }
+}

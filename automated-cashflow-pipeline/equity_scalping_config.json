@@ -1,0 +1,56 @@
+{
+  "strategy_name": "Equity Scalping - ₹5K Capital",
+  "starting_capital": 5000,
+  "max_position_size": 1500,
+  "max_trades_per_day": 3,
+  "risk_management": {
+    "stop_loss_percent": 3,
+    "target_profit_percent": 8,
+    "max_daily_loss": 200,
+    "max_daily_exposure": 3000
+  },
+  "time_based_limits": {
+    "market_open": "09:15",
+    "market_close": "15:30",
+    "no_trade_before": "09:30",
+    "no_trade_after": "15:00",
+    "lunch_break": "12:00-13:30"
+  },
+  "equity_symbols": [
+    "RELIANCE",
+    "TCS", 
+    "HDFCBANK",
+    "INFY",
+    "ITC",
+    "SBIN",
+    "BHARTIARTL",
+    "ICICIBANK",
+    "KOTAKBANK",
+    "LT"
+  ],
+  "model_accuracy_threshold": 0.75,
+  "paper_trading": {
+    "enabled": true,
+    "log_file": "equity_trades_log.csv"
+  },
+  "live_trading": {
+    "enabled": false,
+    "mode": "equity_only",
+    "breeze_config": {
+      "exchange": "NSE",
+      "product_type": "EQUITY",
+      "order_type": "LIMIT"
+    }
+  },
+  "performance_tracking": {
+    "daily_summary": true,
+    "weekly_analysis": true,
+    "metrics": [
+      "win_rate",
+      "avg_profit_per_trade",
+      "max_drawdown",
+      "sharpe_ratio",
+      "model_accuracy"
+    ]
+  }
+}

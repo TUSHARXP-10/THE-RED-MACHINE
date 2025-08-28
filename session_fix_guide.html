@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ICICI Session Fix</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .url { background: #f0f0f0; padding: 10px; margin: 10px 0; word-break: break-all; }
+        .steps { background: #e8f4f8; padding: 15px; border-radius: 5px; }
+        .warning { background: #fff3cd; padding: 10px; border-left: 4px solid #ffc107; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>ICICI Breeze Session Fix</h2>
+        
+        <div class="warning">
+            <strong>Important:</strong> Use incognito/private browser mode to avoid cache issues
+        </div>
+        
+        <div class="url">
+            <strong>Login URL:</strong><br>
+            <a href="https://api.icicidirect.com/apiuser/login?api_key=48P221376%24R4679S622J8a135u9gid35" target="_blank">https://api.icicidirect.com/apiuser/login?api_key=48P221376%24R4679S622J8a135u9gid35</a>
+        </div>
+        
+        <div class="steps">
+            <h3>Step-by-Step Process:</h3>
+            <ol>
+                <li><strong>Open Developer Tools:</strong> Press F12 or Ctrl+Shift+I</li>
+                <li><strong>Go to Network tab</strong></li>
+                <li><strong>Click the login URL above</strong></li>
+                <li><strong>Login with your ICICI credentials</strong></li>
+                <li><strong>Complete OTP if required</strong></li>
+                <li><strong>After successful login:</strong>
+                    <ul>
+                        <li>Check Network tab for "API_Session" in Form Data</li>
+                        <li>OR check left panel for "API Session" value</li>
+                        <li>OR check URL for apisession parameter</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

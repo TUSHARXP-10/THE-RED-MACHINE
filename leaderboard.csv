@@ -1,6 +1,2 @@
-strategy_name,pnl,sharpe_ratio
-StrategyA,1000,1.5
-StrategyB,800,1.2
-StrategyC,1200,1.8
-StrategyD,500,0.9
-StrategyE,1500,2.1
+strategy_id,strategy_name,pnl,sharpe_ratio,max_drawdown,win_rate
+real_sensex_strategy,RealSENSEXStrategy,950,1.4,0.08,0.65

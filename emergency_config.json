@@ -1,0 +1,25 @@
+{
+  "emergency_fixes": {
+    "confidence_threshold": 65,
+    "price_change_threshold": 20,
+    "force_morning_trade": true,
+    "morning_trade_time": "09:15",
+    "adaptive_thresholds": true,
+    "volatility_window": 20,
+    "min_data_samples": 50,
+    "max_consecutive_no_signals": 5
+  },
+  "multi_strategy": {
+    "conservative_confidence": 80,
+    "moderate_confidence": 65,
+    "aggressive_confidence": 50,
+    "enable_forced_trades": true,
+    "force_trade_after": "14:00"
+  },
+  "paper_trading": {
+    "enabled": true,
+    "test_duration_hours": 4,
+    "log_all_signals": true,
+    "validate_performance": true
+  }
+}

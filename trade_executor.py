@@ -32,7 +32,7 @@ class TradeExecutor:
         self._initialize_trade_log()
 
     def _initialize_trade_log(self):
-        if not os.path.exists(self.trade_log_path):
+        if not os.path.exists(self.trade_log_path) or os.stat(self.trade_log_path).st_size == 0:
             log_df = pd.DataFrame(columns=[
                 'timestamp', 'strategy_name', 'action', 'instrument', 
                 'quantity', 'price', 'status', 'mode', 'order_id', 'message'

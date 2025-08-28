@@ -1,0 +1,16 @@
+{
+  "margins": {
+    "source": "kite_api",
+    "timestamp": "2025-08-08T02:48:40.564623",
+    "available_cash": 3000.0,
+    "available_intraday": 0.0,
+    "utilised_debits": 0.0,
+    "utilised_span": 0.0,
+    "utilised_exposure": 0.0,
+    "total_available": 3000.0,
+    "utilised_total": 0.0,
+    "net_available": 3000.0,
+    "status": "active"
+  },
+  "timestamp": "2025-08-08T02:48:40.565176"
+}

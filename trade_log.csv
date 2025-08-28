@@ -1,3 +1,2 @@
 timestamp,strategy_name,action,instrument,quantity,price,status,mode,order_id,message
-,,,,,,,,,
-,,,,,,,,,
+2025-08-03T20:18:41.416463,SensexStrategy,BUY,SENSEX,10,0.0,PAPER_EXECUTED,paper,PAPER_1754232521.416463,Paper trade executed successfully.

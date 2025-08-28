@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-08-08T09:13:50.464039",
+  "results": {
+    "streamlit": true,
+    "kite_connect": false,
+    "trading_system": true,
+    "demat": false,
+    "otm_system": true
+  },
+  "status": "NEEDS_SETUP",
+  "next_steps": [
+    "Update Kite API credentials in .env file",
+    "Check Kite Connect access token validity"
+  ]
+}

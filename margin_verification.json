@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-08-08T02:49:39.303413",
+  "status": "success",
+  "margins": {
+    "equity": {
+      "available": {
+        "cash": 3000.0,
+        "intraday_payin": 0.0
+      },
+      "utilised": {
+        "debits": 0.0,
+        "span": 0.0,
+        "exposure": 0.0
+      }
+    }
+  },
+  "available_cash": 3000.0,
+  "system_ready": true
+}

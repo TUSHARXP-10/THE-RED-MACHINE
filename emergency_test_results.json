@@ -1,0 +1,127 @@
+{
+  "adaptive_thresholds": [
+    {
+      "volatility": 7.0710678118654755,
+      "threshold": 75,
+      "confidence": 0.7
+    },
+    {
+      "volatility": 4.673328578219169,
+      "threshold": 75,
+      "confidence": 0.7
+    },
+    {
+      "volatility": 1.4142135623730951,
+      "threshold": 75,
+      "confidence": 0.7
+    }
+  ],
+  "force_signals": [
+    {
+      "time": "09:15:00",
+      "price_change": 0.5,
+      "force_triggered": true
+    },
+    {
+      "time": "09:15:00",
+      "price_change": 20,
+      "force_triggered": true
+    },
+    {
+      "time": "09:15:00",
+      "price_change": -20,
+      "force_triggered": true
+    },
+    {
+      "time": "09:15:00",
+      "price_change": 100,
+      "force_triggered": true
+    },
+    {
+      "time": "09:15:00",
+      "price_change": -150,
+      "force_triggered": true
+    },
+    {
+      "time": "09:30:00",
+      "price_change": 0.5,
+      "force_triggered": false
+    },
+    {
+      "time": "09:30:00",
+      "price_change": 20,
+      "force_triggered": true
+    },
+    {
+      "time": "09:30:00",
+      "price_change": -20,
+      "force_triggered": true
+    },
+    {
+      "time": "09:30:00",
+      "price_change": 100,
+      "force_triggered": true
+    },
+    {
+      "time": "09:30:00",
+      "price_change": -150,
+      "force_triggered": true
+    },
+    {
+      "time": "14:00:00",
+      "price_change": 0.5,
+      "force_triggered": true
+    },
+    {
+      "time": "14:00:00",
+      "price_change": 20,
+      "force_triggered": true
+    },
+    {
+      "time": "14:00:00",
+      "price_change": -20,
+      "force_triggered": true
+    },
+    {
+      "time": "14:00:00",
+      "price_change": 100,
+      "force_triggered": true
+    },
+    {
+      "time": "14:00:00",
+      "price_change": -150,
+      "force_triggered": true
+    },
+    {
+      "time": "15:00:00",
+      "price_change": 0.5,
+      "force_triggered": true
+    },
+    {
+      "time": "15:00:00",
+      "price_change": 20,
+      "force_triggered": true
+    },
+    {
+      "time": "15:00:00",
+      "price_change": -20,
+      "force_triggered": true
+    },
+    {
+      "time": "15:00:00",
+      "price_change": 100,
+      "force_triggered": true
+    },
+    {
+      "time": "15:00:00",
+      "price_change": -150,
+      "force_triggered": true
+    }
+  ],
+  "signal_frequency": {
+    "original_signals": 2,
+    "new_signals": 4,
+    "improvement": 2
+  },
+  "confidence_levels": []
+}

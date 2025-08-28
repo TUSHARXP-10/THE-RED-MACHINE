@@ -1,0 +1,7 @@
+strategy_name,pnl,sharpe_ratio
+Strategy Name,PnL,Sharpe Ratio,Max Drawdown,Win Rate
+StrategyA,1000,1.5,0.1,0.6
+StrategyB,800,1.2,0.15,0.55
+StrategyC,1200,1.8,0.08,0.7
+StrategyD,500,0.9,0.2,0.4
+StrategyE,1500,2.1,0.05,0.75

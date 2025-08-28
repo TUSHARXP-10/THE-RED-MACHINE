@@ -28,7 +28,8 @@ class DriftDetector:
             print(f"Leaderboard file not found at {LEADERBOARD_PATH}")
             return
 
-        leaderboard_df = pd.read_csv(LEADERBOARD_PATH)
+        column_names = ['Strategy Name', 'PnL', 'Sharpe Ratio', 'Max Drawdown', 'Win Rate']
+        leaderboard_df = pd.read_csv(LEADERBOARD_PATH, header=0, names=column_names)
         current_timestamp = datetime.now().isoformat()
 
         for index, row in leaderboard_df.iterrows():
@@ -151,9 +152,42 @@ class DriftDetector:
         else:
             print("No significant drift detected.")
 
-if __name__ == '__main__':
+def start_monitoring(interval_minutes=30):
+    """Start continuous monitoring of strategy drift at specified intervals"""
+    import time
+    import schedule
+    
     detector = DriftDetector()
+    print(f"🔍 Starting drift monitoring with {interval_minutes} minute intervals")
+    print("Press Ctrl+C to stop monitoring")
+    
+    # Run once immediately
     detector.run_drift_detection_cycle()
+    
+    # Schedule regular runs
+    schedule.every(interval_minutes).minutes.do(detector.run_drift_detection_cycle)
+    
+    try:
+        while True:
+            schedule.run_pending()
+            time.sleep(1)
+    except KeyboardInterrupt:
+        print("\n✅ Drift monitoring stopped")
+
+if __name__ == '__main__':
+    import argparse
+    
+    parser = argparse.ArgumentParser(description='Drift Detection and Monitoring Tool')
+    parser.add_argument('--start-monitoring', action='store_true', help='Start continuous monitoring')
+    parser.add_argument('--interval', type=int, default=30, help='Monitoring interval in minutes')
+    args = parser.parse_args()
+    
+    if args.start_monitoring:
+        start_monitoring(args.interval)
+    else:
+        detector = DriftDetector()
+        detector.run_drift_detection_cycle()
+        print("\nℹ️ For continuous monitoring, use: python drift_detector.py --start-monitoring")
 
     # Example of how to manually update a strategy status
     # detector.update_strategy_status('example_strategy_name', 'active')

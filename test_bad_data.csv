@@ -1,0 +1,6 @@
+date,stock_price,volume,symbol
+2025-07-29,150.50,1000000,IBM
+invalid-date,-50.00,invalid-volume,MSFT
+2025-07-28,,500000,IBM
+2025-07-27,200.75,-1000000,GOOGL
+NaN,300.25,2000000,TSLA
